@@ -28,6 +28,35 @@ anime.timeline({loop: false})
 
   
 let inview = new Waypoint({
+    element: document.querySelector('.else'),
+    handler: function(direction) {
+        document.querySelector('.else').style.opacity = 1;
+        anime.timeline({loop: false})
+            .add({
+                targets: '.else h2',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1200,
+            })
+            .add({
+                targets: '.else__column',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 50 + 150 * i
+            }, '-=1000');
+            inview.destroy();  
+    },
+    offset: '60%'
+})
+
+
+  
+let inview2 = new Waypoint({
     element: document.querySelector('.skills'),
     handler: function(direction) {
         document.querySelector('.skills').style.opacity = 1;
@@ -59,13 +88,49 @@ let inview = new Waypoint({
                 duration: 800,
                 delay: (el, i) => 20 + 30 * i
             }, '-=700');
-            inview.destroy();  
+            inview2.destroy();  
     },
     offset: '60%'
 })
 
 
-let inview2 = new Waypoint({
+let inview3 = new Waypoint({
+    element: document.querySelector('.work'),
+    handler: function(direction) {
+        document.querySelector('.work').style.opacity = 1;
+        anime.timeline({loop: false})
+            .add({
+                targets: '.work h2',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1200,
+            })
+            .add({
+                targets: '.work-table',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 600,
+                delay: (el, i) => 20 + 80 * i
+            }, '-=1000')
+            .add({
+                targets: '.job-description',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1200,
+            }, '-=600');
+            inview3.destroy();  
+    },
+    offset: '65%'
+})
+
+
+let inview4 = new Waypoint({
     element: document.querySelector('.education'),
     handler: function(direction) {
         document.querySelector('.education').style.opacity = 1;
@@ -87,13 +152,13 @@ let inview2 = new Waypoint({
                 duration: 600,
                 delay: (el, i) => 20 + 80 * i
             }, '-=1000');
-            inview2.destroy();  
+            inview4.destroy();  
     },
     offset: '65%'
 })
 
 
-let inview3 = new Waypoint({
+let inview5 = new Waypoint({
     element: document.querySelector('.socials'),
     handler: function(direction) {
         console.log("proc");
@@ -116,14 +181,14 @@ let inview3 = new Waypoint({
                 duration: 600,
                 delay: (el, i) => 20 + 80 * i
             }, '-=1000');
-            inview3.destroy();    
+            inview5.destroy();    
     },
     offset: '80%'
 })
 
 
 
-let inview4 = new Waypoint({
+let inview6 = new Waypoint({
     element: document.querySelector('.svg__cap'),
     handler: function(direction) {
         anime({
@@ -134,7 +199,7 @@ let inview4 = new Waypoint({
             delay: function(el, i) { return i * 150 },
             direction: 'normal'
           });
-        inview4.destroy();    
+        inview6.destroy();    
     },
     offset: '65%'
 })

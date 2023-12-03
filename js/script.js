@@ -15,7 +15,7 @@ anime.timeline({ loop: false })
         ],
         rotate: '3turn',
         delay: 100,
-        duration: 2000
+        duration: 1600
     })
     .add({
         targets: '.nav-items__item',
